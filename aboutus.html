@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berkshire Hathaway Inc.</title>
+    <style>body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+    }
+    
+    header {
+        background-color: #ebedf3;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+    }
+    
+    nav {
+        background-color: #928bf89a;
+    }
+    
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+    
+    nav ul li {
+        margin: 0;
+    }
+    
+    nav ul li a {
+        color: white;
+        padding: 15px 20px;
+        display: block;
+        text-decoration: none;
+    }
+    
+    nav ul li a:hover {
+        background-color: #514ef8;
+    }
+    
+    main {
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    section {
+        margin-bottom: 40px;
+    }
+    
+    h2 {
+        color: #2b43aa;
+    }
+    
+    .chart-container {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+    
+    footer {
+        color: rgb(12, 8, 8);
+        text-align: center;
+        padding: 10px 0;
+        width: 100%;
+        bottom: 0;
+    }
+    
+    @media (max-width: 768px) {
+        nav ul {
+            flex-direction: column;
+        }
+    }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <img src="https://cdn.worldvectorlogo.com/logos/berkshire-hathaway.svg" alt="BERKSHIRE HATHAWAY INC." width="40%">
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#financials">Financials</a></li>
+            <li><a href="#investments">Investments</a></li>
+            <li><a href="#leadership">Leadership</a></li>
+            <li><a href="#history">History</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>Berkshire Hathaway Inc. is an American multinational conglomerate holding company headquartered in Omaha, Nebraska, United States. The company wholly owns GEICO, Duracell, Dairy Queen, BNSF Railway, Lubrizol, Fruit of the Loom, Helzberg Diamonds, Long & Foster, FlightSafety International, Pampered Chef, Forest River, and NetJets, and also owns 38.6% of Pilot Flying J; 26.7% of the Kraft Heinz Company; significant minority holdings in American Express, The Coca-Cola Company, Bank of America, and Apple; and has significant investments in the financial sector, technology, and other industries.</p>
+        </section>
+        <section id="financials">
+            <h2>Financials</h2>
+            <div class="chart-container">
+                <canvas id="revenueChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="profitChart"></canvas>
+            </div>
+        </section>
+        <section id="investments">
+            <h2>Investments</h2>
+            <div class="chart-container">
+                <canvas id="investmentsPieChart"></canvas>
+            </div>
+        </section>
+        <section id="leadership">
+            <h2>Leadership</h2>
+            <p>Berkshire Hathaway's leadership team is headed by Chairman and CEO Warren Buffett, often regarded as one of the most successful investors of all time. The company's vice-chairman is Charlie Munger, who has played a significant role in shaping the company's investment philosophy and strategies.</p>
+            <ul>
+                <li>Warren Buffett - Chairman and CEO</li>
+                <li>Charlie Munger - Vice Chairman</li>
+                <li>Ajit Jain - Vice Chairman of Insurance Operations</li>
+                <li>Greg Abel - Vice Chairman of Non-Insurance Operations</li>
+            </ul>
+        </section>
+        <section id="history">
+            <h2>History</h2>
+            <p>Berkshire Hathaway's origins date back to the 19th century with the founding of the Valley Falls Company in 1839. The company became Berkshire Hathaway in 1955 following a merger with the Hathaway Manufacturing Company. Warren Buffett began acquiring shares in the early 1960s and eventually took control of the company in 1965. Under Buffett's leadership, Berkshire Hathaway transformed from a struggling textile company into a major holding company with a diverse range of businesses and investments.</p>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>For more information about Berkshire Hathaway Inc., you can visit their <a href="https://www.berkshirehathaway.com/" target="_blank">official website</a>.</p>
+            <address>
+                Berkshire Hathaway Inc.<br>
+                3555 Farnam Street<br>
+                Omaha, NE 68131<br>
+                United States
+            </address>
+            <br>
+        </section>
+    </main>
+
+    <footer>
+        <hr>
+        <p>&copy; 2024 Berkshire Hathaway Inc.</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    // Revenue Chart
+    var ctx1 = document.getElementById('revenueChart').getContext('2d');
+    var revenueChart = new Chart(ctx1, {
+        type: 'line',
+        data: {
+            labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
+            datasets: [{
+                label: 'Revenue (in billions)',
+                data: [247.5, 254.6, 245.5, 276.1, 302.1, 310.0],
+                borderColor: 'rgba(43, 67, 170, 0.774)',
+                fill: false
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Profit Chart
+    var ctx2 = document.getElementById('profitChart').getContext('2d');
+    var profitChart = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
+            datasets: [{
+                label: 'Net Profit (in billions)',
+                data: [4.0, 81.4, 42.5, 89.8, 90.0, 95.0],
+                backgroundColor: 'rgba(43, 67, 170, 0.774)'
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Investments Pie Chart
+    var ctx3 = document.getElementById('investmentsPieChart').getContext('2d');
+    var investmentsPieChart = new Chart(ctx3, {
+        type: 'pie',
+        data: {
+            labels: ['Apple', 'Bank of America', 'Coca-Cola', 'American Express', 'Others'],
+            datasets: [{
+                data: [38, 12, 9, 7, 34],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)',
+                    'rgba(153, 102, 255, 0.6)'
+                ]
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+});
+
+    </script>
+</body>
+</html>
