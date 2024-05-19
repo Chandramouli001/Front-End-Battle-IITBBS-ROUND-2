@@ -732,40 +732,4 @@ textarea.input-field {
 
   .about .grid-list { gap: 60px; }
 
-}#ticker-tape-container {
-  position:static;
-  bottom: 0; /* Changed from top: 0 */
-  left: 0;
-  width: 100%;
-  background-color: #000;
-  color: #eee;
-  padding: 0px 0;
-  overflow: hidden;
-}
-
-#ticker-tape {
-  white-space: nowrap;
-  animation: moveTicker 20s linear infinite;
-}
-
-@keyframes moveTicker {
-  from {
-      transform: translateX(100%);
-  }
-  to {
-      transform: translateX(-100%);
-  }
-}
-
-.stock-item {
-  display: inline-block;
-  margin-right: 20px;
-  vertical-align: middle;
-}
-
-.stock-logo {
-  width: 24px;
-  height: auto;
-  margin-right: 5px;
-  vertical-align: middle;
 }
