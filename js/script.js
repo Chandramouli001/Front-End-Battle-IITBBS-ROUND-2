@@ -1,10 +1,19 @@
 'use strict';
 
 
-var loader = document.getElementById("load");
-window.addEventListener("load", function(){
-  loader.style.display = "none";
- })
+// var loader = document.getElementById("load");
+// window.addEventListener("load", function(){
+//   loader.style.display = "none";
+// })
+
+// new_loder
+window.addEventListener("load", function() {
+  var loader = document.getElementById("load");
+  setTimeout(function() {
+    loader.style.display = "none";
+    document.getElementById("content").style.display = "block";
+  }, 1000); 
+});
 
 
 
